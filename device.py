@@ -63,8 +63,10 @@ class AndroidDevice(object):
 
         await adb.shell(self._serial,
                         "/data/local/tmp/atx-agent server --stop")
-        await adb.shell(self._serial,
+        # await adb.shell(self._serial,
                         "/data/local/tmp/atx-agent server --nouia -d")
+        await adb.shell(self._serial,
+                        "/data/local/tmp/atx-agent server -d")
 
     async def open_identify(self):
         await adb.shell(
